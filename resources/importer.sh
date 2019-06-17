@@ -101,11 +101,15 @@ executors=("$executor1" "$executor2" "$executor3" "$executor4" "$executor5" "$ex
 
 echo "Execution of ${executors[${N}]}";
 #Per ora non lo eseguiamo
-#eval "${executors[${N}]}";
-retval=$?;
-if [ $retval -ne 0 ]; then
-	echo "Error in importing phase.";
-	exit 1;
+if [ $N -ne 6 ]; then
+	echo "PROVA"
+else
+	eval "${executors[${N}]}";
+	retval=$?;
+	if [ $retval -ne 0 ]; then
+		echo "Error in importing phase.";
+		exit 1;
+	fi
 fi
 echo "Data import successfully completed.";
 # END data import ---------------------------------------------------------------------------------
