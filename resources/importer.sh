@@ -101,7 +101,7 @@ executors=("$executor1" "$executor2" "$executor3" "$executor4" "$executor5" "$ex
 
 echo "Execution of ${executors[${N}]}";
 #Per ora non lo eseguiamo
-if [ $N -ne 6 ]; then
+if [ $N -ne 5 ]; then
 	echo "PROVA"
 else
 	eval "${executors[${N}]}";
