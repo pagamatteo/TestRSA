@@ -38,10 +38,13 @@ esac
 
 # BEGIN data integration --------------------------------------------------------------------------
 echo "Starting integration..."
-integrator1="java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.WebsiteIntegrator -DB $db -WebsiteDB websitecorrect1 &> ${log_dir}log_website_corrector_${db}.log";
-#integrator3="java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.LatLongFinale -DB $db -LatLonDB geocoordinate &> ${log_dir}log_latlon_integrator_${db}.log";
-integrator2="java -Xmx30g -cp ${project_jar} it.unimore.alps.integrator.GeoCoordinatesIntegrator -DB $db -LatLonDB geocoordinate &> ${log_dir}log_latlon_integrator_${db}.log";
-integrators=("$integrator1" "$integrator2");
+#integrator1="java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.WebsiteIntegrator -DB $db -WebsiteDB websitecorrect1 &> ${log_dir}log_website_corrector_${db}.log";
+integrator1="java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.WebsiteIntegrator -DB $db -WebsiteDB cleanwebsite &> ${log_dir}log_website_corrector_${db}.log";
+#integrator4="java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.LatLongFinale -DB $db -LatLonDB geocoordinate &> ${log_dir}log_latlon_integrator_${db}.log";
+#integrator2="java -Xmx30g -cp ${project_jar} it.unimore.alps.integrator.GeoCoordinatesIntegrator -DB $db -LatLonDB geocoordinate &> ${log_dir}log_latlon_integrator_${db}.log";
+integrator2="java -Xmx30g -cp ${project_jar} it.unimore.alps.integrator.GeoCoordinatesIntegrator -DB $db -LatLonDB points &> ${log_dir}log_latlon_integrator_${db}.log";
+integrator3="java -cp ${project_jar} it.unimore.alps.integrator.NutsIntegrator -DB $db &> ${log_dir}log_nuts_integrator_${db}.log;";
+integrators=("$integrator1" "$integrator2" "$integrator3");
 for j in "${integrators[@]}"; do
 	#"${integrators[j]}";
 	echo "${j[@]}";

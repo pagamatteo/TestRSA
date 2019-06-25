@@ -45,6 +45,7 @@ esac
 
 # BEGIN NUTS INTEGRATOR ---------------------------------------------------------------------------
 echo "Nuts codes integration";
-#togliere echo e le virgolette, solo per testare
-echo "java -cp ${project_jar} it.unimore.alps.integrator.NutsIntegrator -DB ${dedup_db} &> ${log_dir}log_nuts_integrator_${db}.log";
+java -cp ${project_jar} it.unimore.alps.integrator.NutsIntegrator -DB ${dedup_db} &> ${log_dir}log_nuts_integrator_${db}.log;
+java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.CrawledDataIntegrator -DB ${dedup_db} &> ${log_dir}log_crawled_data_integrator_${db}.log
+java -Xmx10g -cp ${project_jar} it.unimore.alps.integrator.OrganizationKeywordsIntegrator -DB ${dedup_db} &> ${log_dir}log_keywords_data_integrator_${db}.log
 # END NUTS INTEGRATOR -----------------------------------------------------------------------------
