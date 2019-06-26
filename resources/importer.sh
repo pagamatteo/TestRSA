@@ -53,7 +53,7 @@ esac
 case $N in
 	*[!0-9]*) echo "$N not a number"
 		 exit 2;;
-	*) if test $N -lt 0 -o $N -ge 17
+	*) if test $N -lt 0 -o $N -ge 18
 	   then
 		echo "$N out of bounds"
 		 exit 2
